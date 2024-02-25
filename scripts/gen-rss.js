@@ -23,7 +23,7 @@ async function generate() {
 
       allPosts.push({
         title: frontmatter.data.title,
-       // url: '/posts/' + name.replace(/\.mdx?/, ''),
+        url: '/posts/' + name.replace(/\.mdx?/, ''),
         date: frontmatter.data.date,
         description: frontmatter.data.description,
         categories: frontmatter.data.tag.split(', '),
