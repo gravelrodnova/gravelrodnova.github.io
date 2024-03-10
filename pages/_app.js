@@ -8,6 +8,11 @@ export default function Nextra({ Component, pageProps }) {
     <>
       <Head>
         <link
+          type="page"
+          title="projects"
+          href="/projects.mdx"
+        />
+        <link
           rel="alternate"
           type="application/rss+xml"
           title="RSS"
