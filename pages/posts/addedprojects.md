@@ -1,7 +1,7 @@
 ---
 title: added new projects to projects page
 date: 2024/4/21
-description: post about updating my site
+description: added new projects to the project page
 tag: update
 author: nova
 ---
