@@ -4,7 +4,7 @@ export default function Document() {
   const meta = {
     title: 'nova neace portfolio',
     description: 'my portfolio',
-    image: 'https://assets.vercel.com/image/upload/q_auto/front/vercel/dps.png'
+    image: 'https://raw.githubusercontent.com/gravelrodnova/gravelrodnova.github.io/main/public/favicon.ico'
   }
 
   return (
