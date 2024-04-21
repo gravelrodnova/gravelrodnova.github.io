@@ -1,5 +1,5 @@
 ---
-type: posts
+type: page
 title: posts
 date: 2024-02-02
 ---
