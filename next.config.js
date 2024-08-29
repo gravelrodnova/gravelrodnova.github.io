@@ -8,6 +8,8 @@ const withNextra = require('nextra')({
 
 const nextConfig = {
   output: 'export',
+  reactStrictMode: true,
+  pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
  
   // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
   // trailingSlash: true,
