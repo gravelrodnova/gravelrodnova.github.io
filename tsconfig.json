@@ -9,7 +9,7 @@
       "skipLibCheck": true,
       "allowJs": true,
       "jsx": "react-jsx",
-      "moduleResolution": "Node",
+      "moduleResolution": "node",
       "resolveJsonModule": true
     },
     "include": [".",
