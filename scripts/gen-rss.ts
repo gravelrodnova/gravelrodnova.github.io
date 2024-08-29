@@ -32,7 +32,7 @@ async function generate() {
     })
   )
 
-  allPosts.sort((a:number, b:number) => new Date(b.date) - new Date(a.date))
+  allPosts.sort((a:any, b:any) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
   allPosts.forEach((post:any) => {
       feed.item(post)
   })
