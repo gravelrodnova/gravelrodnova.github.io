@@ -63,3 +63,16 @@ img.next-image {
 .nav-line .nav-link {
   color: #69778c;
 }
+
+.imgDark {
+  display: none;
+}
+ 
+@media (prefers-color-scheme: dark) {
+  .imgLight {
+    display: none;
+  }
+  .imgDark {
+    display: unset;
+  }
+}
