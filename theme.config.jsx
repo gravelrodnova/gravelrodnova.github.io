@@ -3,7 +3,8 @@ import React from "react"
 const YEAR = new Date().getFullYear()
 
 export default {
-  footer: <p>\nMIT 2024 © sayasumajo.</p>,
+  padding: 3,
+  footer: <p>MIT 2024 © sayasumajo.</p>,
   head: ({ title, meta }) => (
     <>
       {meta.description && (
