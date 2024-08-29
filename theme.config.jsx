@@ -3,7 +3,7 @@ import React from "react"
 const YEAR = new Date().getFullYear()
 
 export default {
-  footer: <p>MIT 2024 © sayasumajo.</p>,
+  footer: <p>\nMIT 2024 © sayasumajo.</p>,
   head: ({ title, meta }) => (
     <>
       {meta.description && (
@@ -16,11 +16,11 @@ export default {
   readMore: 'Read More →',
   postFooter: null,
   darkMode: true,
-
+/*
   navs: [
     {
       url: 'https://github.com/shuding/nextra',
       name: 'Nextra'
     }
-  ]
+  ]*/
 }
