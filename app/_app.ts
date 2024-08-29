@@ -1,7 +1,8 @@
 import 'nextra-theme-blog/style.css'
 import '../styles/main.css'
+/** @type {import('nextra').NextConfig} */
 
-export default function Nextra({ Component, pageProps }) {
+export default function Nextra({ Component, pageProps }): string {
   return (
     
     <>

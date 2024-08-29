@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
       "target": "es2016",
-      "module": "Node16",
+      "lib": ["dom", "dom.iterable", "esnext"],
+      "module": "esnext",
       "declaration": false,
       "noEmit": true,
       "esModuleInterop": true,
@@ -9,8 +10,15 @@
       "skipLibCheck": true,
       "allowJs": true,
       "jsx": "react-jsx",
-      "moduleResolution": "Node16",
-      "resolveJsonModule": true
+      "moduleResolution": "bundler",
+      "isolatedModules": true,
+      "resolveJsonModule": true,
+      "incremental": true,
+      "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     },
     "include": [".",
     "new-types.d.ts",
