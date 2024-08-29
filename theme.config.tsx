@@ -5,7 +5,7 @@ const YEAR = new Date().getFullYear()
 export default {
   padding: 3,
   footer: <p>MIT 2024 © sayasumajo.</p>,
-  head: ({ title, meta }) => (
+  head: ({ title, meta }:{title:any,meta:any}) => (
     <>
       {meta.description && (
         <meta name="description" content={meta.description} />
