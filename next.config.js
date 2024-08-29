@@ -1,15 +1,16 @@
+/** @type {import('next').NextConfig} */
 const withNextra = require('nextra')({
   theme: 'nextra-theme-blog',
   themeConfig: './theme.config.tsx',
 })
 // @ts-check
  
-/** @type {import('next').NextConfig} */
+
 
 const nextConfig = {
   output: 'export',
   reactStrictMode: true,
-  pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
+  pageExtensions: ["js", "jsx", "ts", "tsx", "mdx", "md"],
  
   // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
   // trailingSlash: true,

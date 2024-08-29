@@ -1,5 +1,5 @@
 {
-    "compilerOptions": {
+  "compilerOptions": {
       "target": "es2016",
       "lib": ["dom", "dom.iterable", "esnext"],
       "module": "esnext",
@@ -9,7 +9,7 @@
       "strict": true,
       "skipLibCheck": true,
       "allowJs": true,
-      "jsx": "react-jsx",
+      "jsx": "preserve",
       "moduleResolution": "bundler",
       "isolatedModules": true,
       "resolveJsonModule": true,
@@ -27,4 +27,4 @@
       "**/*.tsx"
     ],
     "exclude": ["node_modules"]
-  }
+}
