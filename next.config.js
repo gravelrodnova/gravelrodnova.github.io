@@ -1,18 +1,17 @@
+/** @type {import('next').NextConfig} */
 const withNextra = require('nextra')({
   theme: 'nextra-theme-blog',
-  themeConfig: './theme.config.tsx'
+  themeConfig: './theme.config.tsx',
 })
+import module from 'nextra'
+import Nextra from 'nextra/layout'
 
-module.exports = {
-  ...withNextra(),
-  images: {
-    unoptimized: true,
-  },
-}
-/**
- * @type {import('next').NextConfig}
- */
+
+
 const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
   output: 'export',
  
   // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
@@ -24,5 +23,9 @@ const nextConfig = {
   // Optional: Change the output directory `out` -> `dist`
   // distDir: 'dist',
 }
- 
-module.exports = nextConfig
+module.exports = {
+  ...withNextra(nextConfig),
+  images: {
+    unoptimized: true,
+  },
+}
