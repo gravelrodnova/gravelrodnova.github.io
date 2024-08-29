@@ -1,10 +1,7 @@
-/** @type {import('next').NextConfig} */
 const withNextra = require('nextra')({
   theme: 'nextra-theme-blog',
   themeConfig: './theme.config.tsx',
 })
-import module from 'nextra'
-import Nextra from 'nextra/layout'
 
 
 
