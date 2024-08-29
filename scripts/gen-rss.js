@@ -11,9 +11,9 @@ async function generate() {
   })
 
   const posts = await fs.readdir(path.join(__dirname, '..', 'pages', 'posts'))
-  const allPosts:any = []
+  const allPosts = []
   await Promise.all(
-    posts.map(async (name:string) => {
+    posts.map(async (name) => {
       if (name.startsWith('index.')) return
 
       const content = await fs.readFile(
@@ -32,8 +32,8 @@ async function generate() {
     })
   )
 
-  allPosts.sort((a:any, b:any) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
-  allPosts.forEach((post:any) => {
+  allPosts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
+  allPosts.forEach((post) => {
       feed.item(post)
   })
   await fs.writeFile('./public/feed.xml', feed.xml({ indent: true }))

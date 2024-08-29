@@ -25,6 +25,6 @@
       ".next/types/**/*.ts",
       "**/*.ts",
       "**/*.tsx"
-    ],
+, "scripts/gen-rss.js"    ],
     "exclude": ["node_modules"]
 }
