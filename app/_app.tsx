@@ -1,6 +1,7 @@
 import 'nextra-theme-blog/style.css'
 import '../styles/main.css'
 import { AppProps } from 'next/app';
+import Head from 'next/head';
 
 
 export default function withNextra({ Component, pageProps }: {Component:any,pageProps:any}) {
