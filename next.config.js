@@ -3,8 +3,6 @@ const withNextra = require('nextra')({
   themeConfig: './theme.config.jsx',
 })
 
-
-
 const nextConfig = {
   experimental: {
     appDir: true,
