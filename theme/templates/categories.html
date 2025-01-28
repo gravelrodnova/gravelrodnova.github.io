@@ -1,22 +1,20 @@
-{% extends 'base.html' %}
-{% import '_lib.html' as lib %}
+{% extends "base.html" %}
 
-{% block title %}Categories / {{ SITENAME }}{% endblock %}
+{% block title %}
+  Categories {{ super() }}
+{% endblock %}
+
+{% block page_header %}
+  Categories
+{% endblock %}
 
 {% block content %}
-<section class="categories">
-    <h1>Categories</h1>
-
-    <ul>
-        {% for category, articles in categories %}
-        <li>
-            <a href="{{ SITEURL }}/{{ category.url }}">
-                {{ lib.category_glyph(category) }}
-                {{ category.name }}
-            </a>
-            — {{ articles | length }}
-        </li>
-        {% endfor %}
-    </ul>
-</section>
+  <table class="table table-bordered table-striped">
+    {% for category, articles in categories|sort %}
+      <tr>
+        <td><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></td>
+        <td>{{ articles|count }}</td>
+      </tr>
+    {% endfor %}
+  </table>
 {% endblock %}

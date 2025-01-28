@@ -1,20 +1,9 @@
-{% extends '_article_list.html' %}
+{% extends "index.html" %}
 
-{% block title %}🔖 {{ tag.name }} {{ TITLE_DELIMITER }} Blog {{ TITLE_DELIMITER }} {{ SITENAME }}{% endblock %}
+{% block title %}
+  #{{ tag }} Articles | {{ SITENAME }}
+{% endblock %}
 
-{% block pagetitle %}
-    <h1>
-        <a href="{{ SITEURL }}/{{ articles_paginator.page(1).url }}">
-            🔖 {{ tag.name }}
-        </a>
-    </h1>
-    <ol class="-breadcrumbs">
-        <li><a href="{{ SITEURL }}/{{ INDEX_URL }}">Blog</a></li>
-        <li><a href="{{ SITEURL }}/{{ TAGS_URL }}">Tags</a></li>
-    </ol>
-    {{ lib.micro_paginator() }}
-    {% if TAG_FEED_ATOM %}
-    <a href="{{ SITEURL }}/{{ TAG_FEED_ATOM.format(slug=category.slug) }}" class="category-atom">
-        <img src="/theme/images/feed-icon-28x28.png" alt="Atom feed" title="Atom feed"></a>
-    {% endif %}
+{% block page_header %}
+  #{{ tag }} Articles
 {% endblock %}

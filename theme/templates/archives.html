@@ -1,42 +1,18 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block title %}Archive {{ TITLE_DELIMITER }} {{ SITENAME }}{% endblock %}
+{% block title %}
+  Archives {{ super() }}
+{% endblock %}
 
-{% block pagetitle %}
-    <h1>Archive</h1>
-    <ol class="-breadcrumbs">
-        <li><a href="{{ SITEURL }}/{{ INDEX_URL }}">Blog</a></li>
-    </ol>
+{% block page_header %}
+  Archives
 {% endblock %}
 
 {% block content %}
-<section class="archives">
-<ul class="category-filter">
-    {% for category, articles in categories | sort %}
-    <li><label>
-        <input type="checkbox" data-category="{{ category.slug }}" checked>
-        {{ lib.category_glyph(category, alt=False) }}
-        {{ CATEGORY_NAMES[category.slug] }}
-    </label></li>
+  <dl class="row">
+    {% for article in dates %}
+      <dt class="col-sm-4">{{ article.locale_date }}</dt>
+      <dd class="col-sm-8"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}{% if article.link %} <i class="fas fa-link"></i>{% endif %}</a></dd>
     {% endfor %}
-</ul>
-{% for article in articles %}
-    {% if loop.index0 == 0 or articles[loop.index0 - 1].date.year != article.date.year %}
-    {% if loop.index0 > 0 %}
-    <hr>
-    {% endif %}
-    <h2>{{ article.date.year }}</h2>
-    {% endif %}
-
-    <article{% if article.category %} data-category="{{ article.category.slug }}"{% endif %}>
-        <time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.date | strftime("%b %d") }}</time>
-        <h1{% if article.category %} class="category-{{ article.category.slug }}"{% endif %}>
-            <a href="{{ SITEURL }}/{{ article.url }}">
-                {{ lib.category_glyph(article.category) }}
-                {{ article.title | striptags }}
-            </a>
-        </h1>
-    </article>
-{% endfor %}
-</section>
+  </dl>
 {% endblock %}
