@@ -1,14 +1,12 @@
 AUTHOR = 'nova'
 SITENAME = 'nova'
-SITEURL = "https://sayo.gay"
+SITEURL = ""
 
 PATH = "content"
 
 TIMEZONE = 'America/New_York'
 
 DEFAULT_LANG = 'English'
-
-THEME = './pelican-alchemy/alchemy'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
