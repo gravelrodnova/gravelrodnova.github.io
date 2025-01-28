@@ -1,6 +1,6 @@
 AUTHOR = 'nova'
 SITENAME = 'nova'
-SITEURL = "localhost:8000"
+SITEURL = "https://sayo.gay"
 
 PATH = "content"
 
