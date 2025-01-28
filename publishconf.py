@@ -11,8 +11,6 @@ from pelicanconf import *
 SITEURL = ""
 RELATIVE_URLS = False
 
-THEME = 'themes/gaysex'
-
 FEED_ALL_ATOM = "feeds/all.atom.xml"
 CATEGORY_FEED_ATOM = "feeds/{slug}.atom.xml"
 
