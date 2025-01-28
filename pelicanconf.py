@@ -8,7 +8,7 @@ TIMEZONE = 'America/New_York'
 
 DEFAULT_LANG = 'English'
 
-THEME = 'themes/pelican-alchemy/alchemy'
+THEME = 'themes/gaysex'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
