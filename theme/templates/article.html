@@ -1,70 +1,41 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block head %}
-  {{ super() }}
-  <meta name="description" content="{{ article.summary|striptags }}">
-{% endblock %}
+{% block title %}{{ article.title|striptags }} {{ TITLE_DELIMITER }} {{ SITENAME }}{% endblock %}
 
-{% block title %}
-  {{ article.title|striptags }} {{ super() }}
-{% endblock %}
-
-{% block page_header %}
-  {% if article.link %}
-    <a href="{{ article.link }}" rel="bookmark">
-  {% endif %}
-  {{ article.title }}
-  {% if article.link %}
-    <i class="fas fa-link"></i></a>
-  {% endif %}
+{% block pagetitle %}
+    <h1>
+        <a href="{{ SITEURL }}/{{ article.url }}">
+            {{ article.title | striptags }}
+        </a>
+    </h1>
+    <ol class="-breadcrumbs">
+        <li><a href="{{ SITEURL }}/{{ INDEX_URL }}">Blog</a></li>
+        <li>
+            {{ lib.category_glyph(article.category) }}
+            <a href="{{ SITEURL }}/{{ article.category.url }}">{{ CATEGORY_NAMES[article.category.slug] }}</a>
+        </li>
+    </ol>
+    {{ lib.article_time(article) }}
+    {{ lib.article_series_nav(article) }}
 {% endblock %}
 
 {% block content %}
-  <article class="article">
-    <header>
-      <ul class="list-inline">
-        <li class="list-inline-item text-muted" title="{{ article.date.isoformat() }}">
-          <i class="fas fa-clock"></i>
-          {{ article.locale_date }}
-        </li>
-        <li class="list-inline-item">
-          <i class="fas fa-folder-open"></i>
-          <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
-        </li>
-        {% if not HIDE_AUTHORS and article.authors %}
-          <li class="list-inline-item">
-            <i class="fas fa-user"></i>
-            {% for author in article.authors %}
-              <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>{% if not loop.last %}, {% endif %}
-            {% endfor %}
-          </li>
-        {% endif %}
-        {% if article.tags %}
-          <li class="list-inline-item">
-            <i class="fas fa-tag"></i>
-            {% for tag in article.tags %}
-              <a href="{{ SITEURL }}/{{ tag.url }}">#{{ tag }}</a>{% if not loop.last %}, {% endif %}
-            {% endfor %}
-          </li>
-        {% endif %}
-        {% if article.translations %}
-          <li class="list-inline-item">
-            <i class="fas fa-globe"></i>
-            {% for translation in article.translations %}
-              <a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a>
-            {% endfor %}
-          </li>
-        {% endif %}
-      </ul>
-    </header>
-    <div class="content">
-      {{ article.content }}
-      {% if article.link %}
-        <p class="link-button"><a href="{{ article.link }}" rel="bookmark">
-          <i class="fas fa-link"></i> view link
-        </a></p>
-      {% endif %}
-    </div>
-  </article>
-  {% include 'include/comments.html' %}
+    <article class="single" role="article">
+        <div class="entry-content">
+            {{ lib.article_illustration(article) }}
+            {{ article.content }}
+        </div>
+
+        {{ lib.article_gallery(article) }}
+        {#
+        <footer>
+            {{ lib.article_footer(article) }}
+            {{ lib.article_social_cruft(article) }}
+        </footer>
+        #}
+    </article>
+
+    {{ lib.patreon_plea() }}
+
+    {{ lib.article_disqus_comments(article) }}
 {% endblock %}

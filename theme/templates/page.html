@@ -1,22 +1,22 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block head %}
-  {{ super() }}
-  <meta name="description" content="{{ page.summary|striptags }}">
-{% endblock %}
+{% block title %}{{ page.title | striptags }} {{ TITLE_DELIMITER }} {{ SITENAME }}{% endblock %}
 
-{% block title %}
-  {{ page.title|striptags }} {{ super() }}
-{% endblock %}
-
-{% block page_header %}
-  {{ page.title }}
+{% block pagetitle %}
+    <h1>
+        {# TODO can i make a hierarchy out of the page path?? #}
+        <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a>
+    </h1>
+    {{ lib.article_time(page) }}
+    {{ lib.article_series_nav(page) }}
 {% endblock %}
 
 {% block content %}
-  <article class="article">
-    <div class="content">
-      {{ page.content }}
-    </div>
-  </article>
+    <article class="single" role="article">
+        <div class="entry-content">{{ page.content }}</div>
+    </article>
+
+    {{ lib.patreon_plea() }}
+
+    {{ lib.article_disqus_comments(page) }}
 {% endblock %}
