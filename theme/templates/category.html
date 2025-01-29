@@ -1,9 +1,7 @@
 {% extends "index.html" %}
 
-{% block title %}
-  {{ category }} Articles | {{ SITENAME }}
-{% endblock %}
+{% block title %}{{ SITENAME|striptags }} - {{ category }} category{% endblock %}
 
-{% block page_header %}
-  {{ category }} Articles
+{% block content_title %}
+    <h2>Articles in the {{ category }} category</h2>
 {% endblock %}

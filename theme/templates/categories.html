@@ -1,20 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}
-  Categories {{ super() }}
-{% endblock %}
-
-{% block page_header %}
-  Categories
-{% endblock %}
+{% block title %}{{ SITENAME|striptags }} - Categories{% endblock %}
 
 {% block content %}
-  <table class="table table-bordered table-striped">
-    {% for category, articles in categories|sort %}
-      <tr>
-        <td><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></td>
-        <td>{{ articles|count }}</td>
-      </tr>
-    {% endfor %}
-  </table>
+    <h2>Categories on {{ SITENAME }}</h2>
+    <ul>
+        {% for category, articles in categories|sort %}
+            <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a> ({{ articles|count }})</li>
+        {% endfor %}
+    </ul>
 {% endblock %}

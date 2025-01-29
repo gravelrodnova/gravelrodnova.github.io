@@ -1,68 +1,80 @@
-{%- macro url(destination) -%}
-{%- if destination|lower|truncate(4, True, '') == 'http' or not destination -%}
-{{ destination }}
-{%- elif destination|first == '/' -%}
-{{ SITEURL + destination }}
-{%- else -%}
-{{ SITEURL + '/' + destination }}
-{%- endif -%}
-{%- endmacro -%}
-<!doctype html>
-<html lang="{{ DEFAULT_LANG }}">
+<!DOCTYPE html>
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+  <head>
+    {% block head %}
+      <title>{% block title %}{{ SITENAME|striptags }}{% endblock title %}</title>
+      <meta charset="utf-8" />
+      <meta name="generator" content="Pelican" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      {% if SITESUBTITLE %}
+        <meta name="description" content="{{ SITESUBTITLE }}" />
+      {% endif %}
+      {% if STYLESHEET_URL %}
+        <link rel="stylesheet" type="text/css" href="{{ STYLESHEET_URL }}" />
+      {% endif %}
+      {% if FEED_ALL_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Full Atom Feed" />
+      {% endif %}
+      {% if FEED_ALL_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|striptags }} Full RSS Feed" />
+      {% endif %}
+      {% if FEED_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{%if FEED_ATOM_URL %}{{ FEED_ATOM_URL }}{% else %}{{ FEED_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Atom Feed" />
+      {% endif %}
+      {% if FEED_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{% if FEED_RSS_URL %}{{ FEED_RSS_URL }}{% else %}{{ FEED_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|striptags }} RSS Feed" />
+      {% endif %}
+      {% if CATEGORY_FEED_ATOM and category %}
+        <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Categories Atom Feed" />
+      {% endif %}
+      {% if CATEGORY_FEED_RSS and category %}
+        <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_RSS_URL %}{{ CATEGORY_FEED_RSS_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_RSS.format(slug=category.slug) }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|striptags }} Categories RSS Feed" />
+      {% endif %}
+      {% if TAG_FEED_ATOM and tag %}
+        <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_ATOM.format(slug=tag.slug) }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Tags Atom Feed" />
+      {% endif %}
+      {% if TAG_FEED_RSS and tag %}
+        <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_RSS_URL %}{{ TAG_FEED_RSS_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_RSS.format(slug=tag.slug) }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|striptags }} Tags RSS Feed" />
+      {% endif %}
+    {% endblock head %}
+  </head>
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <title>{% block title %}| {{ SITENAME }}{% endblock %}</title>
-  <link rel="canonical" href="{{ SITEURL }}/{{ output_file }}">
-
-  {% if RFG_FAVICONS %}
-    <link rel="apple-touch-icon" href="{{ SITEURL }}/apple-touch-icon.png" sizes="180x180">
-    <link rel="icon" type="image/png" href="{{ SITEURL }}/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="{{ SITEURL }}/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="{{ SITEURL }}/manifest.json">
-    <meta name="theme-color" content="#333333">
-  {% endif %}
-
-  <link rel="stylesheet" href="{{ url(BOOTSTRAP_CSS or '/theme/css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ url(FONTAWESOME_CSS or '/theme/css/fontawesome.min.css') }}">
-  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygments/{{ PYGMENTS_STYLE|default('default') }}.min.css">
-  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/theme.css">
-  {% for stylesheet in THEME_CSS_OVERRIDES or () %}
-  <link rel="stylesheet" href="{{ url(stylesheet) }}">
-  {% endfor %}
-
-  {% include 'include/xml_feeds.html' %}
-  {% block head %}{% endblock %}
-  {% include 'include/analytics.html' %}
-</head>
-
-<body>
-  <header class="header">
-    <div class="container">
-      {% include 'include/header.html' %}
-    </div>
-  </header>
-
-  <div class="main">
-    <div class="container">
-      <h1>{% block page_header %}{% endblock %}</h1>
-      <hr>
-      {% block content %}{% endblock %}
-    </div>
-  </div>
-
-  <footer class="footer">
-    <div class="container">
-      {% include 'include/footer.html' %}
-    </div>
-  </footer>
-
-  {% for script in THEME_JS_OVERRIDES or () %}
-  <script type="text/javascript" src="{{ url(script) }}" crossorigin="anonymous"></script>
-  {% endfor %}
-</body>
-
+  <body>
+    {% block body %}
+      <header>
+        {% block header %}
+          <hgroup><h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>{% if SITESUBTITLE %}<p>{{ SITESUBTITLE }}</p>{% endif %}</hgroup>
+        {% endblock header %}
+        {% block nav %}
+          <nav><ul>
+            {% for title, link in MENUITEMS %}
+              <li><a href="{{ link }}">{{ title }}</a></li>
+            {% endfor %}
+            {% if DISPLAY_PAGES_ON_MENU %}
+              {% for p in pages %}
+                <li><a href="{{ SITEURL }}/{{ p.url }}" {% if p==page %} aria-current="page" {% endif %}>{{ p.title }}</a></li>
+              {% endfor %}
+            {% endif %}
+            {% if DISPLAY_CATEGORIES_ON_MENU %}
+              {% for cat, null in categories %}
+                <li><a href="{{ SITEURL }}/{{ cat.url }}" {% if cat==category %} aria-current="page" {% endif %}>{{ cat}}</a></li>
+              {% endfor %}
+            {% endif %}
+          </ul></nav>
+        {% endblock nav %}
+      </header>
+      <main>
+        {% block content %}
+        {% endblock content %}
+      </main>
+      <footer>
+        {% block footer %}
+          <address>
+            Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>,
+            which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
+          </address>
+        {% endblock footer %}
+      </footer>
+    {% endblock body %}
+  </body>
 </html>

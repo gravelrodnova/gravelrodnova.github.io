@@ -1,18 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}
-  Archives for {{ period | reverse | join(' ') }} {{ super() }}
-{% endblock %}
-
-{% block page_header %}
-  Archives for {{ period | reverse | join(' ') }}
-{% endblock %}
+{% block title %}{{ SITENAME|striptags }} - {{ period | reverse | join(' ') }} archives{% endblock %}
 
 {% block content %}
-  <dl class="dl-horizontal">
-    {% for article in dates %}
-      <dt>{{ article.locale_date }}</dt>
-      <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
-    {% endfor %}
-  </dl>
+    <h2>Archives for {{ period | reverse | join(' ') }}</h2>
+
+    <dl>
+        {% for article in dates %}
+            <dt>{{ article.locale_date }}</dt>
+            <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+        {% endfor %}
+    </dl>
 {% endblock %}
