@@ -1,5 +1,5 @@
-AUTHOR = 'nova'
-SITENAME = 'nova'
+AUTHOR = 'sayo'
+SITENAME = 'sayo'
 SITEURL = ""
 
 PATH = "content"
@@ -17,7 +17,10 @@ AUTHOR_FEED_RSS = None
 
 # Blogroll
 LINKS = (
-    
+    ("Pelican", "https://getpelican.com/"),
+    ("Python.org", "https://www.python.org/"),
+    ("Jinja2", "https://palletsprojects.com/p/jinja/"),
+    ("You can modify those links in your config file", "#"),
 )
 
 # Social widget
@@ -26,9 +29,7 @@ SOCIAL = (
     ("Another social link", "#"),
 )
 
-THEME = 'theme'
-
-DEFAULT_PAGINATION = False
+DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
-RELATIVE_URLS = True
+# RELATIVE_URLS = True
