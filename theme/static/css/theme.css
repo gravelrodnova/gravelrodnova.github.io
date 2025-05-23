@@ -12,7 +12,7 @@
 }
 ::selection {
   background: var(--primary);
-  color: var(--secondary);
+  color: light dark;
   text-shadow: none;
 }
 
@@ -101,14 +101,14 @@ hr {
 
 .admonition {
   border: thin solid gray;
-  background-color: lightgrey;
+  background-color: light dark;
   padding: .25em .5em;
   margin-bottom: 1rem;
 }
 
 .admonition .admonition-title {
   font-weight: bold;
-  background-color: rgba(255,255,255,0.66);
+  background-color: light dark;
   text-align: center;
 }
 
@@ -118,17 +118,17 @@ hr {
 
 .admonition.important, .admonition.note, .admonition.warning {
   border-color: goldenrod;
-  background-color: lightgoldenrodyellow;
+  background-color: light dark;
 }
 
 .admonition.attention, .admonition.caution, .admonition.danger, .admonition.error {
   border-color: red;
-  background-color: lightpink;
+  background-color: light dark;
 }
 
 .admonition.hint, .admonition.tip {
   border-color: limegreen;
-  background-color: palegreen;
+  background-color: light dark;
 }
 
 @media (min-width: 576px) {
