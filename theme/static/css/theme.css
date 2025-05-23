@@ -1,6 +1,6 @@
 :root {
     --alchemy-border: rgba(0,0,0,.1);
-    /*color-scheme: light dark;*/
+    color-scheme: light dark;
 }
 ::selection {
   background: var(--primary);
