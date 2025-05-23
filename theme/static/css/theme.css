@@ -143,3 +143,10 @@ hr {
     margin-right: 10px;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .element {
+    color: white;
+    background-color: black;
+  }
+}
