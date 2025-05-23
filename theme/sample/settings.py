@@ -20,3 +20,5 @@ DEFAULT_LANG = 'en'
 MENUITEMS = ( 
     ('about', '/'),
     )
+
+DISPLAY_HOME   = False
