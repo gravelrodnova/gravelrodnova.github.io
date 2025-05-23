@@ -11,4 +11,4 @@ def path():
     Return path to theme templates and assets
     Use this as value for THEME in Pelican settings
     '''
-    return resource_filename(__name__, 'Gaming')
+    return resource_filename(__name__, '')

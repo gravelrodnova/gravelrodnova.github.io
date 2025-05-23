@@ -10,12 +10,3 @@ TBD
 
 
 
-##### ggggg
-
-<Link
-  href={{
-    pathname: 'gay',
-  }}
->
-  gay
-</Link> 
