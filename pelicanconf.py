@@ -24,8 +24,6 @@ MENUITEMS = (
     
 )
 
-DEFAULT_LANG = 'en'
-
 DEFAULT_PAGINATION = 10
 
 DISPLAY_HOME   = False
