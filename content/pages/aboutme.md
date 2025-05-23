@@ -15,7 +15,5 @@ Summary: Short version for index and feeds
 /> 
 
 im nova neace
-gf
-amateur game and web developer with an interest in open source, continental philosophy and japanese pop culture
 
-This will be turned into :abbr:`HTML (HyperText Markup Language)`.
+amateur game and web developer with an interest in open source, continental philosophy and japanese pop culture
