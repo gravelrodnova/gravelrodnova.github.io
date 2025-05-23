@@ -30,5 +30,7 @@ SOCIAL = (
 
 DEFAULT_PAGINATION = 10
 
+DISPLAY_HOME   = False
+
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
