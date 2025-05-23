@@ -4,7 +4,7 @@
 AUTHOR = 'sayo'
 SITENAME = 'sayo'
 SITEURL = 'https://sayo.gay'
-SITELOGO = 'https://www.gravatar.com/avatar/de3ba847c89c8cab9dd7080abebf9df1'
+SITELOGO = '\content\images\Novas_oc_with_smoke.jpg'
 DEFAULT_METADATE = {
     'status': 'draft',
     }

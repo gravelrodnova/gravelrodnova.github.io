@@ -1,6 +1,6 @@
 AUTHOR = 'sayo'
 SITENAME = 'sayo'
-SITEURL = ""
+SITEURL = "https://sayo.gay"
 
 PATH = "content"
 
