@@ -187,7 +187,7 @@ thead {
 }
 
 .post {
-    margin: 0 0 4.5em 150px;
+    margin: 13% 0;
 }
 .post.archives {
     margin-bottom: 1.5em;
@@ -198,7 +198,7 @@ thead {
 }
 
 .page {
-    margin: 0 90px;
+    margin: 0 5%;
 }
 
 .highlight {
