@@ -1,6 +1,7 @@
 AUTHOR = 'sayo'
 SITENAME = 'sayo'
 SITEURL = "https://sayo.gay"
+SITELOGO = "'https://raw.githubusercontent.com/gravelrodnova/gravelrodnova.github.io/refs/heads/main/content/images/Novas_oc_with_smoke.jpg'"
 
 PATH = "content"
 
