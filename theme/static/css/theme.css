@@ -145,7 +145,7 @@ hr {
 }
 
 @media (prefers-color-scheme: dark) {
-  .element {
+  .header .title .main {
     color: white;
     background-color: black;
   }
