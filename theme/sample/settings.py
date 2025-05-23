@@ -4,7 +4,7 @@
 AUTHOR = 'sayo'
 SITENAME = 'sayo'
 SITEURL = 'https://sayo.gay'
-SITELOGO = '\content\images\Novas_oc_with_smoke.jpg'
+SITELOGO = 'https://github.com/gravelrodnova/gravelrodnova.github.io/blob/main/content/images/Novas_oc_with_smoke.jpg'
 DEFAULT_METADATE = {
     'status': 'draft',
     }
