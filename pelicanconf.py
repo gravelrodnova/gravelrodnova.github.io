@@ -19,7 +19,7 @@ AUTHOR_FEED_RSS = None
 
 # Blogroll
 LINKS = (
-    ("pelican", "gttps://github.com/gravelrodnova/"),
+    ("github", "https://github.com/gravelrodnova/"),
     ("this is a button", "#"),
 )
 
