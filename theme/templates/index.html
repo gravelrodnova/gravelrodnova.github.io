@@ -4,7 +4,10 @@
 {% block content %}
 {% set date = None %}
 <a href="https://github.com/gravelrodnova/">github</a>
-
+<p>
+my friends:
+<a href="https://www.youtube.com/@ProtoPatrol"><img src="protopatrol.jpg" alt="ProtoPatrol"></a> 
+</p>
 {% for article in articles_page.object_list %}
 {%   if date != article.date.date() %}
 {%     set first_article_of_day = True %}
