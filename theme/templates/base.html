@@ -1,0 +1,121 @@
+{% macro ephemeral_nav_link(what, where, selected=False) -%}
+<li class="ephemeral{% if selected %} selected{% endif %}"><a href="{{ SITEURL }}/{{ where }}">{{what}}</a></li>
+{%- endmacro -%}
+
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+    {% block head %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+    {# favicon #}
+    <link rel="shortcut icon" type="image/png" href="/images/Novas_oc_with_smoke.jpg">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/Novas_oc_with_smoke.jpg">
+    {% if FEED_ALL_ATOM %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+    {% endif %}
+    {% if FEED_ALL_RSS %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
+    {% endif %}
+    {% if FEED_ATOM %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+    {% endif %}
+    {% if FEED_RSS %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+    {% endif %}
+    {% if CATEGORY_FEED_ATOM and category %}
+    <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+    {% endif %}
+    {% if CATEGORY_FEED_RSS and category %}
+    <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS.format(slug=category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+    {% endif %}
+    {% if TAG_FEED_ATOM and tag %}
+    <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM.format(slug=tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+    {% endif %}
+    {% if TAG_FEED_RSS and tag %}
+    <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS.format(slug=tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+    {% endif %}
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygments.css" type="text/css" />
+    {% if DARK_LIGHT_SWITCHING_OFF == False %}
+    <style> 
+    @media (prefers-color-scheme: light) {
+        :root {
+            --main-bg-color: #FFFFFF;
+            --accent-color: #FFFFFF;
+            --tab-bg-hover: #d3d3d3;
+            --info-bg-color: #CCC;
+        }
+    }
+    </style>
+    {% endif %}
+    <meta name="generator" content="Pelican" />
+    <meta name="description" content="{{ SITEDESCRIPTION }}" />
+    <meta name="author" content="{{ AUTHOR }}" />
+    {% include 'analytics.html' %}
+    {% endblock head %}
+</head>
+<body>
+    {% if DISPLAY_HEADER or DISPLAY_HEADER is not defined %}
+    <header>
+        {% if DISPLAY_MENU or DISPLAY_MENU is not defined %}
+        <nav style="padding: 2em">
+            <ul>
+            {% block ephemeral_nav %}{% endblock %}
+                {% if DISPLAY_HOME or DISPLAY_HOME is not defined %}
+                <li{% if output_file == "index.html" %} class="selected"{% endif %}><a href="{{ SITEURL }}/">home</a></li>
+                {% endif %}
+                {% if DISPLAY_PAGES_ON_MENU %}
+                {% for p in pages %}
+                <li{% if p == page %} class="selected"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+                {% endfor %}
+                {% endif %}
+                {% for title, link in MENUITEMS %}
+                <li><a href="{{ link }}">{{ title }}</a></li>
+                {% endfor %}
+                {% for name, link, file in MENU_INTERNAL_PAGES %}
+                <li{% if output_file == file %} class="selected"{% endif %}><a href="{{ SITEURL }}/{{ link }}">{{ name }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+        {% endif %}
+        <div class="header_box" style="height: 50px">
+        <h1><a href="{{ SITEURL }}/">
+            <image src='/{{ SITELOGO }}' class="avatar" width="50px" /><span class="site_title">{{ SITENAME }}</span>
+            </a></h1></div>
+            {% if SITESUBTITLE %}
+            <h2>{{ SITESUBTITLE }}</h2>
+            {% endif %}
+        </div>
+    </header>
+    {% endif %}
+    <div id="wrapper">
+        <div id="content">
+            {%- block content -%}{%- endblock %}
+
+            {% if DISPLAY_FOOTER or DISPLAY_FOOTER is not defined %}
+            <div class="clear"></div>
+            <footer>
+                <p>
+                <div class="badges">
+                    <img src="/badges/acab.gif" alt="acab" title="fuck the cops">
+                    <a rel="noreferrer" href="https://na.finalfantasyxiv.com/" target="_blank"><img src="/badges/ffxiv.gif" alt="ffxiv" title="ffxiv"></a>
+                    <img src="/badges/source.jpg" alt="source">
+                    <img src="/badges/slugcat.png" alt="slugcat">
+                    <img src="/badges/vlc.png" alt="vlc">
+                </div>
+            
+                 {% if FEED_ALL_ATOM %}
+                <a href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" rel="alternate">Atom feed</a>
+                 {% endif %}
+                 {% if FEED_ALL_RSS %}
+                <a href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" rel="alternate">RSS feed</a>
+                 {% endif %}
+            </footer>
+            {% endif %}
+        </div>
+        <div class="clear"></div>
+    </div>
+</body>
+</html>
