@@ -5,7 +5,7 @@ SITEDESCRIPTION = 'personal site, possibly a blog'
 
 
 PATH = "content"
-#STATIC_PATHS = ['badges', 'images']
+STATIC_PATHS = ['badges', 'images']
 
 TIMEZONE = 'America/New_York'
 

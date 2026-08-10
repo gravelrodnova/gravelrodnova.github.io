@@ -10,7 +10,6 @@ from pelicanconf import *
 AUTHOR = 'sayo'
 SITENAME = 'sayo'
 SITELOGO = 'images/Novas_oc_with_smoke.jpg'
-SITEURL = "https://sayo.gay"
 
 PATH = "content"
 THEME = 'theme'
@@ -25,7 +24,7 @@ DARK_LIGHT_SWITCHING_OFF = False
 
 DELETE_OUTPUT_DIRECTORY = True
 
-STATIC_PATHS = ['images', 'extra/CNAME']
+STATIC_PATHS = ['badges', 'images', 'extra/CNAME']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 
 # Following items are often useful when publishing
