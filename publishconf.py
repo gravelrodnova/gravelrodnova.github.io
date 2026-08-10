@@ -13,6 +13,7 @@ SITELOGO = 'images/Novas_oc_with_smoke.jpg'
 SITEURL = "https://sayo.gay"
 
 PATH = "content"
+THEME = 'theme'
 #PAGE_PATHS = ["pages", "badges"]
 
 #FEED_ALL_ATOM = "feeds/all.atom.xml"
