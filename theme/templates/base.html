@@ -93,29 +93,29 @@
     <div id="wrapper">
         <div id="content">
             {%- block content -%}{%- endblock %}
-
-            {% if DISPLAY_FOOTER or DISPLAY_FOOTER is not defined %}
-            <div class="clear"></div>
-            <footer>
-                <p>
-                <div class="badges">
-                    <img src="/badges/acab.gif" alt="acab" title="fuck the cops">
-                    <a rel="noreferrer" href="https://na.finalfantasyxiv.com/" target="_blank"><img src="/badges/ffxiv.gif" alt="ffxiv" title="ffxiv"></a>
-                    <img src="/badges/source.jpg" alt="source">
-                    <img src="/badges/slugcat.png" alt="slugcat">
-                    <img src="/badges/vlc.png" alt="vlc">
-                </div>
-            
-                 {% if FEED_ALL_ATOM %}
-                <a href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" rel="alternate">Atom feed</a>
-                 {% endif %}
-                 {% if FEED_ALL_RSS %}
-                <a href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" rel="alternate">RSS feed</a>
-                 {% endif %}
-            </footer>
-            {% endif %}
         </div>
         <div class="clear"></div>
     </div>
+    {% if DISPLAY_FOOTER or DISPLAY_FOOTER is not defined %}
+        <div class="clear"></div>
+        <footer>
+            <p>
+            <div class="badges">
+                <img src="/badges/acab.gif" alt="acab" title="fuck the cops">
+                <a rel="noreferrer" href="https://na.finalfantasyxiv.com/" target="_blank"><img src="/badges/ffxiv.gif" alt="ffxiv" title="ffxiv"></a>
+                <img src="/badges/source.jpg" alt="source">
+                <img src="/badges/slugcat.png" alt="slugcat">
+                <img src="/badges/vlc.png" alt="vlc">
+            </div>
+            
+                {% if FEED_ALL_ATOM %}
+            <a href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" rel="alternate">Atom feed</a>
+                {% endif %}
+                {% if FEED_ALL_RSS %}
+            <a href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" rel="alternate">RSS feed</a>
+                {% endif %}
+        </footer>
+    {% endif %}
+    
 </body>
 </html>

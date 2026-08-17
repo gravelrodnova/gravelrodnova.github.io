@@ -9,9 +9,9 @@ License: none (public domain)
 /* Modified by sayomajo*/
 
 :root {
-    --main-bg-color: #140518;
-    --code-bg-color: #140518;
-    --accent-color: #dfe21c;
+    --main-bg-color: #150718;
+    --code-bg-color: #150718;
+    --accent-color: #e4c161;
     --tab-bg-hover: var(--code-bg-color);
     --info-bg-color: var(--code-gb-color);
     color-scheme: light dark
@@ -70,6 +70,98 @@ table {
     border-spacing: 0;
 }
 
+/* Authentic Frutiger Aero Button CSS */
+.frutiger-aero-button {
+  /* OKLCH Color System for accurate colors */
+  --hue: 280;
+  --sat: 0.34;
+  --glow-intensity: 0.3;
+
+  /* Color Variables */
+  --fg: oklch(15% calc(var(--sat) * 0.5) var(--hue));
+  --bg: oklch(75% var(--sat) var(--hue) / 0.8);
+  --bg-dark: oklch(45% var(--sat) var(--hue) / 0.75);
+  --bottom-glow: radial-gradient(
+    farthest-corner at bottom center,
+    rgba(255, 255, 255, var(--glow-intensity)),
+    transparent
+  );
+
+  /* Base Styling */
+  background-color: var(--bg);
+  background:
+    var(--bottom-glow),
+    linear-gradient(to bottom, var(--bg-dark), var(--bg));
+
+  border: 1px solid var(--bg);
+  border-radius: 9999px;
+
+  /* Shadows and Effects */
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+
+  /* Typography */
+  color: var(--fg);
+  font-family: "Myriad Pro", "Myriad", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  text-shadow: 0 2px 0.5em rgba(0, 0, 0, 0.2);
+
+  /* Layout */
+  cursor: pointer;
+  position: relative;
+  transition: all 300ms ease;
+
+  /* Prevent text selection */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Top Highlight Effect */
+.frutiger-aero-button::after {
+  content: "";
+  position: absolute;
+  top: 4%;
+  left: 0.75em;
+  width: calc(100% - 1.5em);
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: inherit;
+  transition: background 400ms ease;
+  pointer-events: none;
+}
+
+/* Hover State */
+.frutiger-aero-button:hover,
+.frutiger-aero-button:focus {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Active State */
+.frutiger-aero-button:active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transform: translateY(1px);
+}
+
+/* Size Variations */
+.frutiger-aero-button.small {
+  padding: 0.5em 1.5em;
+  font-size: 0.875rem;
+}
+
+.frutiger-aero-button.medium {
+  padding: 0.75em 2em;
+  font-size: 1rem;
+}
+
+.frutiger-aero-button.large {
+  padding: 1em 3em;
+  font-size: 1.125rem;
+}
+
 body {
     font-family: Georgia, serif;
     font-size: 16px;
@@ -83,9 +175,19 @@ header, #wrapper {
     
 }
 
+#wrapper {
+    border: 1px solid #2b1d2f;
+    border-radius: 5px;
+    padding: 0 10px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    background-color: #140518;
+}
+
 a {
     text-decoration: none;
-    color: #db36a4;
+    color: #9d49e6;
+    /*possibly 7d26c7*/
 }
 
 ul {
@@ -115,7 +217,6 @@ h1, h2, h3, h4, h5, h6 {
 h1, h2, h3 {
     font-size: 1.5em;
     line-height: 1em;
-    margin: 1em 0;
 }
 
 img, svg, p, .post > .highlight, .highlighttable, h4, h5, h6, dl {
@@ -293,15 +394,62 @@ nav li {
     float: left;
 }
 nav a {
-    display: block;
-    padding: 3em 10px 10px 10px;
+    display: flex;
+    padding: 0.5em 10px 10px 10px;
+    /* OKLCH Color System for accurate colors */
+  --hue: 280;
+  --sat: 0.34;
+  --glow-intensity: 0.3;
+
+  /* Color Variables */
+  /*--fg: oklch(15% calc(var(--sat) * 0.5) var(--hue));*/
+  --bg: rgba(68, 20, 223, 0.8);
+  --bg-dark: oklch(45% var(--sat) var(--hue) / 0.75);
+  --bottom-glow: radial-gradient(
+    farthest-corner at bottom center,
+    rgba(255, 255, 255, var(--glow-intensity)),
+    transparent
+  );
+
+  /* Base Styling */
+  background-color: var(--bg);
+  background:
+    var(--bottom-glow),
+    linear-gradient(to bottom, var(--bg-dark), var(--bg));
+
+  border: 1px solid var(--bg);
+  border-radius: 9999px;
+
+  /* Shadows and Effects */
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+
+  /* Typography */
+  color: var(--fg);
+  font-family: "Myriad Pro", "Myriad", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  text-shadow: 0 2px 0.5em rgba(0, 0, 0, 0.2);
+
+  /* Layout */
+  cursor: pointer;
+  position: relative;
+  transition: all 300ms ease;
+
+  /* Prevent text selection */
+  user-select: none;
+  -webkit-user-select: none;
 }
-nav a:hover {
+nav a:hover, nav a:focus {
     background-color: var(--tab-bg-hover);
     color: var(--accent-color);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+    transform: translateY(-1px);
+}
+nav a:active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transform: translateY(1px);
 }
 nav li.selected a {
-    background: linear-gradient(to bottom, #cb60b3 0%,#c146a1 50%,#a80077 51%,#db36a4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: linear-gradient(to bottom, #7d26c7 /*#cb60b3*/ 0%,#592d91/*c146a1*/ 50%,#482388 51%,#390c74 /*#db36a4*/ 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     color: #FFF;
 }
 .site_title {
@@ -316,6 +464,12 @@ header h1 {
     font-size: 1.5em;
     line-height: 1em;
     margin: 0;
+    /*padding: 0.5em 10px 10px 10px;
+    border: 1px solid white;
+    border-radius: 0px 0px 30px 30px;
+    max-width: 200px;
+    background-color: #140518;*/
+
 }
 header h2 {
     font-size: 1em;
@@ -324,7 +478,9 @@ header h2 {
 }
 
 #content {
-    margin-top: 3em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1rem;
 }
 
 .pages {
@@ -384,10 +540,13 @@ footer {
     font-family: sans-serif;
     line-height: 2.5em;
     text-align: center;
-    color: #BBB;
-    margin: 3em 0;
-    border: 1px solid #EEE;
+    color: #aeb1b5;
+    margin: auto;
+    border: 1px solid #2b1d2f;
     border-radius: 5px;
+    max-width: 910px;
+    padding: 0 10px;
+    background-color: #140518;
 }
 footer p { margin: 0; }
 
@@ -397,15 +556,15 @@ footer p { margin: 0; }
 
 @media screen and (max-width: 1024px) {
     #wrapper {
-        margin-left: 2.6em;
+        margin-left: auto;
         padding:1em;
     }
 }
 
 @media screen and (max-width: 800px), print {
     #wrapper {
-        margin: 0;
         padding: 1em;
+        margin-top: 25px;
     }
     .date {
         width: 100%;
@@ -424,6 +583,10 @@ footer p { margin: 0; }
     nav ul {
         margin: 0 0 1em 0;
     }
+    footer {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
 }
 @media print {
     * {
@@ -431,7 +594,7 @@ footer p { margin: 0; }
     }
     #wrapper, #content {
         margin: 0;
-        padding: 0;
+        padding: 1rem;
     }
     header, footer, nav {
         display: none;
