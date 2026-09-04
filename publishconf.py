@@ -31,3 +31,6 @@ EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 
 # DISQUS_SITENAME = ""
 # GOOGLE_ANALYTICS = ""
+
+PAGE_URL = "pages/{slug}/"
+PAGE_SAVE_AS = "pages/{slug}/index.html"
