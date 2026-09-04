@@ -548,8 +548,13 @@ footer {
     max-width: 910px;
     padding: 5px;
     background-color: #140518;
+    
 }
 footer p { margin: 0; }
+
+.badges {
+    image-rendering: pixelated;
+}
 
 .right { float: right; }
 
